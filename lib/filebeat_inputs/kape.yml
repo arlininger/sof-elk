@@ -41,3 +41,16 @@
   fields:
     type: kape_evtxlogs
   tags: [ 'json' ]
+
+- type: log
+  paths:
+    - /logstash/kape/*/*/*/*/*_PECmd_Output.json
+    - /logstash/kape/*/*/*/*_PECmd_Output.json
+    - /logstash/kape/*/*/*_PECmd_Output.json
+    - /logstash/kape/*/*_PECmd_Output.json
+    - /logstash/kape/*_PECmd_Output.json
+  close_inactive: 5m
+  fields_under_root: true
+  fields:
+    type: kape_prefetch
+  tags: [ 'json' ]
